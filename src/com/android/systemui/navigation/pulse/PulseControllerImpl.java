@@ -268,7 +268,10 @@ public class PulseControllerImpl
     }
 
     private NavigationBarFrame getNavbarFrame() {
-        return mStatusbar != null ? mStatusbar.getNavigationBarView().getNavbarFrame() : null;
+        if (mStatusbar == null || mStatusbar.getNavigationBarView() == null) {
+         return null;
+        }
+        return mStatusbar.getNavigationBarView().getNavbarFrame();
     }
 
     private NavigationBarView getNavigationBarView() {
